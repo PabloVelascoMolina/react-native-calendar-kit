@@ -82,6 +82,6 @@ const styles = StyleSheet.create({
     height: 28,
     backgroundColor: DEFAULT_PROPS.WHITE_COLOR,
   },
-  dayName: { color: DEFAULT_PROPS.SECONDARY_COLOR, fontSize: 12 },
-  dayNumber: { color: DEFAULT_PROPS.SECONDARY_COLOR, fontSize: 16 },
+  dayName: { color: DEFAULT_PROPS.SECONDARY_COLOR, fontSize: 14,  marginBottom: 10, textAlign: 'center' },
+  dayNumber: { color: DEFAULT_PROPS.SECONDARY_COLOR, fontSize: 18, textAlign: 'center', fontWeight: 'bold' },
 });

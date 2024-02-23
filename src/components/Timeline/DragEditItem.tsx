@@ -423,7 +423,8 @@ const AnimatedHour = ({
     >
       <Text
         allowFontScaling={theme.allowFontScaling}
-        style={[styles.hourText, theme.dragHourText]}
+        style={[styles.hourText, { 
+          borderColor: '#EEE' }]}
       >
         {time}
       </Text>
@@ -445,10 +446,10 @@ const styles = StyleSheet.create({
   },
   hourContainer: {
     position: 'absolute',
-    borderColor: DEFAULT_PROPS.PRIMARY_COLOR,
+    borderColor: '#ff0',
     backgroundColor: DEFAULT_PROPS.WHITE_COLOR,
     borderWidth: 1,
-    borderRadius: 4,
+    borderRadius: 15,
     top: -6,
     alignItems: 'center',
     left: 4,
@@ -473,7 +474,7 @@ const styles = StyleSheet.create({
   },
   hourText: {
     color: DEFAULT_PROPS.PRIMARY_COLOR,
-    fontSize: 10,
+    fontSize: 14,
   },
   indicatorLine: {
     width: 12,

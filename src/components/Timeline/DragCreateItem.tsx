@@ -149,16 +149,16 @@ const styles = StyleSheet.create({
   },
   hourContainer: {
     position: 'absolute',
+    borderColor: '#ff0',
+    backgroundColor: DEFAULT_PROPS.WHITE_COLOR,
     borderWidth: 1,
-    borderRadius: 4,
+    borderRadius: 15,
     top: -6,
     alignItems: 'center',
     left: 4,
-    borderColor: DEFAULT_PROPS.PRIMARY_COLOR,
-    backgroundColor: DEFAULT_PROPS.WHITE_COLOR,
   },
   hourText: {
     color: DEFAULT_PROPS.PRIMARY_COLOR,
-    fontSize: 10,
+    fontSize: 14,
   },
 });
