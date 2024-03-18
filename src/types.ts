@@ -335,7 +335,6 @@ export interface DayBarItemProps {
   width: number;
   startDate: string;
   columnWidth: number;
-  viewMode: CalendarViewMode;
   hourWidth: number;
   onPressDayNum?: (date: string) => void;
   theme: ThemeProperties;
