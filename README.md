@@ -19,7 +19,7 @@ $ yarn add @howljs/calendar-kit
 Using NPM:
 
 ```
-$ npm install --save @howljs/calendar-kit
+$ npm install --save @pablo/calendar-kit
 ```
 
 The libraries we will install now are [@shopify/flash-list](https://shopify.github.io/flash-list/), [react-native-gesture-handler](https://docs.swmansion.com/react-native-gesture-handler/) and [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/). If you already have these libraries installed and at the latest version, you are done here! Otherwise, read on.
