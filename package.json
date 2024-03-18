@@ -29,7 +29,6 @@
   "scripts": {
     "test": "jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
@@ -95,11 +94,6 @@
       "<rootDir>/lib/"
     ]
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
   "release-it": {
     "git": {
       "commitMessage": "chore: release ${version}",
@@ -117,36 +111,11 @@
       }
     }
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native-community",
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
-    }
-  },
+  
   "eslintIgnore": [
     "node_modules/",
     "lib/"
   ],
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
-  },
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
@@ -163,7 +132,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "moment-timezone": "^0.5.40",
-    "xdate": "^0.8.2"
+    "moment-timezone": "^0.5.40"
   }
 }

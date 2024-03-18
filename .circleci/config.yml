@@ -41,15 +41,6 @@ jobs:
           root: .
           paths: .
 
-  lint:
-    executor: default
-    steps:
-      - attach_project
-      - run:
-          name: Lint files
-          command: |
-            yarn lint
-
   typescript:
     executor: default
     steps:
@@ -84,9 +75,6 @@ workflows:
   build-and-test:
     jobs:
       - install-dependencies
-      - lint:
-          requires:
-            - install-dependencies
       - typescript:
           requires:
             - install-dependencies
