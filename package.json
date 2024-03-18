@@ -111,7 +111,6 @@
       }
     }
   },
-  
   "eslintIgnore": [
     "node_modules/",
     "lib/"
@@ -131,6 +130,7 @@
     ]
   },
   "dependencies": {
+    "@howljs/calendar-kit": "git+https://github.com/PabloVelascoMolina/react-native-calendar-kit.git",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.40"
   }
