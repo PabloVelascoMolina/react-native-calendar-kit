@@ -96,17 +96,11 @@ const EventBlock = ({
   }, [event]);
 
   const _renderEventContent = () => {
-    const numberOfLines = Math.floor(event.height / 17);
     return (
         <View>
             <Text numberOfLines={1} style={styles.eventTitle}>
                 {event.title || 'Event'}
             </Text>
-            {numberOfLines > 1 ? (
-                <Text numberOfLines={numberOfLines - 1} style={styles.eventSummary}>
-                {event.summary || ' '}
-                </Text>
-            ) : null}
         </View>
     );
   };
