@@ -44,8 +44,6 @@ const TimelineHeader = ({
     pages[viewMode].data[pages[viewMode].index] || ''
   );
 
-  const dayBarIndex = useRef(pages.week.index);
-
   const _renderSingleDayItem = ({
     item,
     extraData,
@@ -114,32 +112,6 @@ const TimelineHeader = ({
       pagingEnabled: true,
       extraData: extraValues,
     };
-
-    if (viewMode === 'day') {
-      return (
-        <View style={{ width: timelineWidth }}>
-          <AnimatedFlashList
-            {...listProps}
-            data={pages[viewMode].data}
-            initialScrollIndex={pages[viewMode].index}
-            estimatedItemSize={timelineWidth}
-            estimatedListSize={{
-              width: timelineWidth,
-              height: DEFAULT_PROPS.DAY_BAR_HEIGHT,
-            }}
-            renderItem={_renderSingleDayItem}
-            onScroll={(e) => {
-              const x = e.nativeEvent.contentOffset.x;
-              const width = e.nativeEvent.layoutMeasurement.width;
-              const pageIndex = Math.round(x / width);
-              if (dayBarIndex.current !== pageIndex) {
-                dayBarIndex.current = pageIndex;
-              }
-            }}
-          />
-        </View>
-      );
-    }
 
     return (
       <View style={styles.multipleDayContainer}>
