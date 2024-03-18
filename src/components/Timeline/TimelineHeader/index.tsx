@@ -7,7 +7,6 @@ import { useTimelineCalendarContext } from '../../../context/TimelineProvider';
 import type { DayBarItemProps, HighlightDates } from '../../../types';
 import MultipleDayBar from './MultipleDayBar';
 import ProgressBar from './ProgressBar';
-import SingleDayBar from './SingleDayBar';
 
 interface TimelineHeaderProps {
   renderDayBarItem?: (props: DayBarItemProps) => JSX.Element;
@@ -29,7 +28,6 @@ const TimelineHeader = ({
     viewMode,
     dayBarListRef,
     pages,
-    timelineWidth,
     rightSideWidth,
     currentIndex,
     hourWidth,
@@ -43,31 +41,6 @@ const TimelineHeader = ({
   const [startDate, setStartDate] = useState(
     pages[viewMode].data[pages[viewMode].index] || ''
   );
-
-  const _renderSingleDayItem = ({
-    item,
-    extraData,
-  }: ListRenderItemInfo<string>) => {
-    const dayItemProps = {
-      width: timelineWidth,
-      startDate: item,
-      columnWidth,
-      hourWidth,
-      viewMode,
-      onPressDayNum,
-      theme: extraData.theme,
-      locale: extraData.locale,
-      highlightDates: extraData.highlightDates,
-      tzOffset,
-      currentDate: extraData.currentDate,
-    };
-
-    if (renderDayBarItem) {
-      return renderDayBarItem(dayItemProps);
-    }
-
-    return <SingleDayBar {...dayItemProps} />;
-  };
 
   const _renderMultipleDayItem = ({
     item,
@@ -149,14 +122,6 @@ const TimelineHeader = ({
   );
 
   const _renderDayBarView = () => {
-    if (viewMode === 'day') {
-      return _renderSingleDayItem({
-        item: startDate,
-        extraData: extraValues,
-        index: 0,
-        target: 'Cell',
-      });
-    }
     return (
       <View style={styles.multipleDayContainer}>
         <View style={{ width: hourWidth }} />
