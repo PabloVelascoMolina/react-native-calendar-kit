@@ -26,7 +26,6 @@ const TimelineHeader = ({
     dayBarListRef,
     pages,
     rightSideWidth,
-    currentIndex,
     hourWidth,
     columnWidth,
     theme,
@@ -76,7 +75,7 @@ const TimelineHeader = ({
       scrollEventThrottle: 16,
       pagingEnabled: true,
       extraData: extraValues,
-      data: pages.day.data, // Asegúrate de que siempre usas la vista de múltiples días
+      data: pages.day.data,
       initialScrollIndex: pages.day.index,
       estimatedItemSize: rightSideWidth,
       estimatedListSize: {
