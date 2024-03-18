@@ -1,5 +1,5 @@
 import { AnimatedFlashList, ListRenderItemInfo } from '@shopify/flash-list';
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { runOnJS, useAnimatedReaction } from 'react-native-reanimated';
 import { DEFAULT_PROPS } from '../../../constants';
