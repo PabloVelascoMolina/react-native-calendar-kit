@@ -100,7 +100,7 @@ const HourLabel = ({
         theme.hourText,
         labelStyle,
         { 
-          fontSize: isHour ? 14 : 12, // Tamaño más pequeño para los minutos
+          fontSize: isHour ? 10 : 8, // Tamaño más pequeño para los minutos
           position: 'absolute', // Asegúrate de que este estilo sea aplicado correctamente
           color: isHour ? '#000' : '#6D6D6D',
           paddingRight: 8
