@@ -9,7 +9,6 @@ import { getDayBarStyle } from '../../../utils';
 const MultipleDayBar = ({
   width,
   columnWidth,
-  viewMode,
   startDate,
   onPressDayNum,
   theme,
@@ -69,7 +68,7 @@ const MultipleDayBar = ({
         { width, height: DEFAULT_PROPS.DAY_BAR_HEIGHT },
       ]}
     >
-      {times(COLUMNS[viewMode]).map(_renderDay)}
+      {times(COLUMNS['day']).map(_renderDay)}
     </View>
   );
 };
