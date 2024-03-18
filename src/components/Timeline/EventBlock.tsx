@@ -1,12 +1,11 @@
 import isEqual from 'lodash/isEqual';
 import React, { memo } from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Animated, {
   SharedValue,
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
-import { DEFAULT_PROPS } from '../../constants';
 import type { PackedEvent, ThemeProperties } from '../../types';
 import { shallowEqual } from '../../utils';
 
@@ -97,13 +96,18 @@ const EventBlock = ({
   }, [event]);
 
   const _renderEventContent = () => {
+    const numberOfLines = Math.floor(event.height / 17);
     return (
-      <Text
-        allowFontScaling={theme.allowFontScaling}
-        style={[styles.title, theme.eventTitle]}
-      >
-        {event.title}
-      </Text>
+        <View>
+        <Text numberOfLines={1} style={styles.eventTitle}>
+            {event.title || 'Event'}
+        </Text>
+        {numberOfLines > 1 ? (
+            <Text numberOfLines={numberOfLines - 1} style={styles.eventSummary}>
+            {event.summary || ' '}
+            </Text>
+        ) : null}
+    </View>
     );
   };
 
@@ -112,7 +116,7 @@ const EventBlock = ({
   return (
     <Animated.View
       style={[
-        styles.eventBlock,
+        styles.eventContainer,
         { opacity: eventOpacity },
         event.containerStyle,
         eventStyle,
@@ -124,8 +128,11 @@ const EventBlock = ({
         onPress={_onPress}
         onLongPress={_onLongPress}
         style={[
-          StyleSheet.absoluteFill,
-          { backgroundColor: event.color || EVENT_DEFAULT_COLOR },
+            StyleSheet.absoluteFill,
+            { 
+                backgroundColor: event.color ? event.color : EVENT_DEFAULT_COLOR,
+                borderLeftColor: event.borderColor ? event.borderColor : EVENT_DEFAULT_COLOR
+            },
         ]}
         activeOpacity={0.6}
       >
@@ -149,15 +156,31 @@ const areEqual = (prev: EventBlockProps, next: EventBlockProps) => {
 export default memo(EventBlock, areEqual);
 
 const styles = StyleSheet.create({
-  eventBlock: {
-    position: 'absolute',
-    borderRadius: 4,
-    overflow: 'hidden',
-  },
-  title: {
-    paddingVertical: 4,
-    paddingHorizontal: 2,
-    fontSize: 10,
-    color: DEFAULT_PROPS.BLACK_COLOR,
-  },
+    eventContainer: {
+        borderRadius: 5,
+        borderLeftWidth: 5,
+       
+        padding: 8,
+        paddingLeft: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    eventTitle: {
+        fontWeight: 'bold',
+        fontSize: 14,
+        marginBottom: 2,
+    },
+    eventSummary: {
+        fontSize: 12,
+    },
+    eventTimes: {
+        fontSize: 12,
+        marginTop: 4,
+    }
 });

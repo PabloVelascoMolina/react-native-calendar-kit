@@ -162,7 +162,8 @@
     ]
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "moment-timezone": "^0.5.40",
-    "lodash": "^4.17.21"
+    "xdate": "^0.8.2"
   }
 }
